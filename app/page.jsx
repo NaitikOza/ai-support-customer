@@ -8,7 +8,7 @@ export default function Home() {
     {
       role: "assistant",
       content:
-        "Hello! I'm your personalized chatbot. How can I help you today?",
+        "Hello! I'm EchoBot, the next-gen personalized chatbot. How can I help you today?",
     },
   ]);
   const [message, setMessage] = useState("");
