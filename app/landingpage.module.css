@@ -1,0 +1,29 @@
+/* styles/LandingPage.module.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: #000; /* Black background for contrast */
+    color: #fff; /* White text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .headline {
+    font-size: 3rem; /* Large text size */
+    font-weight: bold;
+    line-height: 1.2;
+    color: #54d6ff; /* Light blue color */
+  }
+  

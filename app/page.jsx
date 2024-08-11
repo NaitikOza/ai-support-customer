@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Stack, TextField } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
@@ -94,23 +94,53 @@ export default function Home() {
       height="100vh"
       display="flex"
       flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
+      bgcolor="background.default"
+      sx={{
+        background: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8))",
+        position: "relative",
+        overflow: "hidden",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background: "radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3))",
+          opacity: 0.4,
+          zIndex: -1,
+          filter: "blur(15px)",
+        },
+      }}
     >
+      <Box p={2} sx={{ backgroundColor: "rgba(0, 0, 0, 0.7)", borderBottom: "1px solid rgba(255, 255, 255, 0.2)" }}>
+        <Typography
+          variant="h4"
+          color="white"
+          align="center"
+          fontWeight="bold"
+        >
+          EchoBot
+        </Typography>
+      </Box>
       <Stack
-        direction={"column"}
-        width="500px"
-        height="700px"
-        border="1px solid black"
-        p={2}
+        direction="column"
+        flexGrow={1}
         spacing={3}
+        p={2}
+        overflow="hidden"
+        sx={{
+          position: "relative",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          borderRadius: "20px",
+          boxShadow: "0 0 20px rgba(0, 153, 255, 0.6)",
+        }}
       >
         <Stack
-          direction={"column"}
+          direction="column"
           spacing={2}
           flexGrow={1}
           overflow="auto"
-          maxHeight="100%"
         >
           {messages.map((message, index) => (
             <Box
@@ -124,7 +154,7 @@ export default function Home() {
                 bgcolor={
                   message.role === "assistant"
                     ? "primary.main"
-                    : "secondary.main"
+                    : "brown" // Changed from purple to red for user messages
                 }
                 color="white"
                 borderRadius={16}
@@ -136,19 +166,42 @@ export default function Home() {
           ))}
           <div ref={messagesEndRef} />
         </Stack>
-        <Stack direction={"row"} spacing={2}>
+        <Stack direction="row" spacing={2} alignItems="center">
           <TextField
-            label="Message"
-            fullWidth
+            placeholder="Message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             disabled={isLoading}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: "transparent", // Transparent background
+                borderRadius: "50px", // Rounded corners
+                width: "500px", // Fixed width
+                "& fieldset": {
+                  borderColor: "white", // White border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "white", // White border color on hover
+                },
+              },
+              "& .MuiInputLabel-root": {
+                color: "white", // White label text color
+              },
+              "& .MuiInputBase-input": {
+                color: "white", // White text color inside the input
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // White placeholder text color
+              },
+            }}
+            variant="outlined" // Ensure the variant is outlined for proper styling
           />
           <Button
             variant="contained"
             onClick={sendMessage}
             disabled={isLoading}
+            sx={{ flexShrink: 0 }} // Prevent the button from shrinking
           >
             {isLoading ? "Sending..." : "Send"}
           </Button>
@@ -157,3 +210,7 @@ export default function Home() {
     </Box>
   );
 }
+
+
+
+

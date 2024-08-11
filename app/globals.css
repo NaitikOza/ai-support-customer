@@ -11,14 +11,14 @@
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
+    #ffffff33 0deg,
+    #ffffff33 55deg,
     #54d6ff33 120deg,
     #0071ff33 160deg,
     transparent 360deg
   );
   --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
+    rgb(255, 255, 255),
     rgba(255, 255, 255, 0)
   );
 
@@ -38,6 +38,11 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --glow-color: #54d6ff; /* Light blue for glowing effect */
+  
+  /* Replace with your galaxy background image URL */
+  --galaxy-background: url('https://www.google.com/search?sca_esv=696f62cce5599e91&q=galaxy+image&udm=2&fbs=AEQNm0A2upiO_GHeTz6R89sNEjTHXSUfB8x3gweQ77S5CBNH1g6qnkOm8Wwj20n1wcvydGQCPxoov-41s2XFXvsX4IYwkV7uKiO5pkHfnhX0LWwKylMX338qSvINDl_HXa_1NEWbtdxv7R00u1cst6XW8J1EwQPrv5Rt51YjpNir8pkDCVC55zuB_DoKQqSuTlqS8u16cWPSAxN90SztJ7SDg6jpLPf4aA&sa=X&ved=2ahUKEwjWk7Sz0e2HAxVaEFkFHU7JN2kQtKgLegQIGRAB&biw=1710&bih=880&dpr=2#vhid=u8yoYFryQicKeM&vssid=mosaic');
 }
 
 @media (prefers-color-scheme: dark) {
@@ -89,10 +94,10 @@ body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
-      transparent,
+      rgba(var(--background-start-rgb), 0.8),
       rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    ),
+    var(--galaxy-background);
 }
 
 a {
@@ -100,8 +105,15 @@ a {
   text-decoration: none;
 }
 
+.glow {
+  color: var(--glow-color);
+  text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color), 0 0 20px var(--glow-color);
+}
+
 @media (prefers-color-scheme: light) {
   html {
     color-scheme: light;
   }
 }
+
+
