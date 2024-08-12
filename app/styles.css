@@ -1,3 +1,20 @@
+/* styles.css or your CSS-in-JS solution */
 
+@keyframes galaxyAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+  
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
+    background-image: url('https://www.google.com/search?q=galaxy+gif&sca_esv=696f62cce5599e91&sca_upv=1&udm=2&sxsrf=ADLYWIKTtpoMWPSs-ALkJco4shK5D198BQ:1723404507109&source=lnt&tbs=ic:specific,isc:black&uds=ADvngMjDWvIQwj9b8cEl-0j6QwknXQA6iIHfJmPzadXSKroVWdJ-M3DJJOXRqkA2ZrqtBHZjv82iwr20hbSbNq-CCPNu_kV1Dw&sa=X&ved=2ahUKEwjVgs2L1u2HAxWfE1kFHUUBAVEQpwV6BAgEEBo&biw=1710&bih=880&dpr=2#vhid=169lNeaZn67KrM&vssid=mosaic'); /* Use a URL to an animated GIF or video */
+    background-size: cover;
+    animation: galaxyAnimation 30s infinite linear;
+  }
   
   
